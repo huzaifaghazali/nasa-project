@@ -14,3 +14,5 @@ function startServer() {
 
 
 startServer();
+// "start": "set PORT=5000&& node src/server.js"   => windows shell
+// "start": "PORT=5000 node src/server.js"   => default
