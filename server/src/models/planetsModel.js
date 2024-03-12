@@ -19,11 +19,15 @@ The pipe function is meant to connect a readable stream source to a writable str
 
 function loadPlanetsData() {
   return new Promise((resolve, reject) => {
-    fs.createReadStream(path.join(__dirname, '..', '..', 'data', 'kepler_data.csv'))
-      .pipe(parse({
+    fs.createReadStream(
+      path.join(__dirname, '..', '..', 'data', 'kepler_data.csv')
+    )
+      .pipe(
+        parse({
           comment: '#',
           columns: true,
-      }))
+        })
+      )
       .on('data', (data) => {
         if (isHabitablePlanet(data)) {
           habitablePlanets.push(data);
@@ -40,9 +44,11 @@ function loadPlanetsData() {
   });
 }
 
- 
+function getAllPlanets() {
+  return habitablePlanets;
+}
 
 module.exports = {
   loadPlanetsData,
-  planets: habitablePlanets,
+  getAllPlanets,
 };
