@@ -9,11 +9,14 @@
     "watch": "nodemon src/server.js",
     "start": "node src/server.js",
     "cluster": "pm2 start src/server.js -i max",
-    "pstop" : "pm2 stop server"
+    "cluster-stop" : "pm2 stop server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "axios": "^1.6.7",
     "cors": "^2.8.5",
